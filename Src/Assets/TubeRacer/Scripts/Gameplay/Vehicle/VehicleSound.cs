@@ -4,6 +4,9 @@ using System.Collections;
 
 namespace Gameplay.Vehicle 
 {
+	/// <summary>
+	/// Vehicle sound.
+	/// </summary>
 	public class VehicleSound : MonoBehaviour 
 	{
 		//------------------
@@ -18,11 +21,17 @@ namespace Gameplay.Vehicle
 		#endregion
 
 		#region Unity Methods
+		/// <summary>
+		/// Update this instance.
+		/// </summary>
 		void Update () 
 		{
 			EngineSound ();
 		}
 
+		/// <summary>
+		/// Engines the sound.
+		/// </summary>
 		void EngineSound() 
 		{
 			//TO-DO: Get Speed of Current Tube
