@@ -525,7 +525,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 179520535}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 478a2083ad114a07d000fbfb8d76c639, type: 3}
   m_Name: 
@@ -539,7 +539,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 179520535}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34c3946ab5378473cb34bedd1c8194ba, type: 3}
   m_Name: 
@@ -557,7 +557,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 179520535}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9aaa3f5f2d574f228e4a21aa38b61e4, type: 3}
   m_Name: 
@@ -796,6 +796,7 @@ GameObject:
   - 4: {fileID: 333258215}
   - 136: {fileID: 333258216}
   - 54: {fileID: 333258217}
+  - 114: {fileID: 333258218}
   m_Layer: 0
   m_Name: Vehicle
   m_TagString: Player
@@ -844,6 +845,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &333258218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 333258214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978833588b1de1b4c876789c9dec6a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSpeed: 100
 --- !u!1 &353555159
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,15 +1004,15 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 122726262}
-  - {fileID: 14144794}
+  - {fileID: 1241088195}
+  - {fileID: 1015730806}
+  - {fileID: 1604488042}
+  - {fileID: 1500019964}
+  - {fileID: 1599826941}
   - {fileID: 1152644420}
   - {fileID: 93433231}
+  - {fileID: 14144794}
   - {fileID: 1032957298}
-  - {fileID: 1015730806}
-  - {fileID: 1500019964}
-  - {fileID: 1241088195}
-  - {fileID: 1604488042}
-  - {fileID: 1599826941}
   m_Father: {fileID: 0}
 --- !u!1 &505918726
 GameObject:
@@ -2958,6 +2971,8 @@ GameObject:
   - 4: {fileID: 1312478820}
   - 33: {fileID: 1312478823}
   - 23: {fileID: 1312478821}
+  - 114: {fileID: 1312478822}
+  - 82: {fileID: 1312478824}
   m_Layer: 0
   m_Name: Vehicle
   m_TagString: Untagged
@@ -2997,6 +3012,18 @@ Renderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
+--- !u!114 &1312478822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1312478819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bda007744aa7a3248975b12766b26fcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mediaSpeed: 100
 --- !u!33 &1312478823
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3004,6 +3031,64 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1312478819}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!82 &1312478824
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1312478819}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: b325abc7567b51e42ae738555e948879, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1342964855
 GameObject:
   m_ObjectHideFlags: 0
