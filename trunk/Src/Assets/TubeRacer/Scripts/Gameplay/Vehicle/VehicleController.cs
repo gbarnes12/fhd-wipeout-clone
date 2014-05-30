@@ -1,13 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class VehicleController : MonoBehaviour {
+/// <summary>
+/// Vehicle controller.
+/// </summary>
+public class VehicleController : MonoBehaviour 
+{
+	#region Public Inspector Variables
+	public float Speed = 400;
+	public int RotateVelocity = 100;	
+	#endregion
 
-	public int rotateVelocity = 100;	
-
-	
-	void Update () {
-		float dir = Input.GetAxis("Horizontal")*-1;
-		transform.rotation *= Quaternion.Euler (0, 0, dir*rotateVelocity*Time.deltaTime);
+	#region Unity Methods
+	/// <summary>
+	/// Update this instance.
+	/// </summary>
+	void Update () 
+	{
+		float dir = Input.GetAxis("Horizontal");
+		transform.rotation *= Quaternion.Euler (0, 0, dir * RotateVelocity * Time.deltaTime);
 	}
+	#endregion
 }
