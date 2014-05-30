@@ -35,6 +35,7 @@ namespace Gameplay.World
         #region Private Members
         private LinkedList<WorldTubeChunk> _tubeChunksList;
         private List<WorldTubeChunk> _tubeChunksQueue;
+		private float _vehicleSpeed;
         #endregion
 
         #region Construct
@@ -44,6 +45,7 @@ namespace Gameplay.World
         protected WorldSpawnManager() 
         {
             this._tubeChunksQueue = new List<WorldTubeChunk>();
+			this._vehicleSpeed = 400.0f;
         }
         #endregion
 
@@ -53,6 +55,16 @@ namespace Gameplay.World
         /// </summary>
         void Start()
         {
+			GameObject player = GameObject.FindGameObjectWithTag ("Player");
+			if (player == null) 
+			{
+				Debug.LogError("There is no player object in the scene!");
+				return;
+			}
+
+			VehicleController controller = player.GetComponent<VehicleController> ();
+			this._vehicleSpeed = controller.Speed;
+
             GameObject levelObject = GameObject.FindGameObjectWithTag("World");
             if (levelObject == null)
             {
@@ -82,7 +94,7 @@ namespace Gameplay.World
         {
             foreach(WorldTubeChunk tube in this._tubeChunksList)
             {
-                tube.transform.Translate(new Vector3(0.0f, 0.0f, -1.0f * Time.deltaTime * 50.0f));
+				tube.transform.Translate(new Vector3(0.0f, 0.0f, -1.0f * Time.deltaTime * this._vehicleSpeed));
             }
         }
         #endregion
@@ -95,13 +107,13 @@ namespace Gameplay.World
         private IEnumerator SpawnTubeChunks()
         {
             List<WorldTubeChunk> copiedList = new List<WorldTubeChunk>(this._tubeChunksQueue);
-            
+
             foreach(WorldTubeChunk chunk in copiedList)
             {
                 yield return null;
 
                 LinkedListNode<WorldTubeChunk> lastNode = this._tubeChunksList.Last;
-                chunk.transform.position = new Vector3(chunk.transform.position.x, chunk.transform.position.y, lastNode.Value.transform.position.z + 30);
+                chunk.transform.position = new Vector3(chunk.transform.position.x, chunk.transform.position.y, lastNode.Value.transform.position.z + 350);
                 this._tubeChunksList.AddLast(chunk);
                 this._tubeChunksQueue.Remove(chunk);
 				chunk.gameObject.SetActive(true);
