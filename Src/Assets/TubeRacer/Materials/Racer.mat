@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Racer
-  m_Shader: {fileID: 4, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 2694d5f46dd73e944a988132e9fd64ce, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -27,11 +27,48 @@ Material:
           m_Texture: {fileID: 2800000, guid: b9b476b2412d3164f94cc42fdb6c7b93, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Normal
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _node_206
+        second:
+          m_Texture: {fileID: 2800000, guid: 4804e3040859d2647bbd584c929a73b5, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _node_216
+        second:
+          m_Texture: {fileID: 8900000, guid: f466cf7415226e046b096197eb7341aa, type: 2}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
           name: _Shininess
         second: .19479017
+      data:
+        first:
+          name: _Specularity
+        second: 1
+      data:
+        first:
+          name: _node_209
+        second: 5
+      data:
+        first:
+          name: _node_214
+        second: 3
+      data:
+        first:
+          name: _Glossiness
+        second: .571428597
     m_Colors:
       data:
         first:
