@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: ShaderForgeInternal
+  m_Shader: {fileID: 4800000, guid: 2694d5f46dd73e944a988132e9fd64ce, type: 3}
+  m_ShaderKeywords: []
+  m_CustomRenderQueue: -1
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _Normal
+        second:
+          m_Texture: {fileID: 2800000, guid: abdaa6318ca2ad040aaeb24526779369, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _diffuse
+        second:
+          m_Texture: {fileID: 2800000, guid: 4804e3040859d2647bbd584c929a73b5, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _normal
+        second:
+          m_Texture: {fileID: 2800000, guid: 865a49689f9bc7c42af97c26e0033757, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _node_171
+        second:
+          m_Texture: {fileID: 2800000, guid: eca0e183305df0245bea0a0656d4265b, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _node_206
+        second:
+          m_Texture: {fileID: 2800000, guid: 4804e3040859d2647bbd584c929a73b5, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _node_216
+        second:
+          m_Texture: {fileID: 8900000, guid: f466cf7415226e046b096197eb7341aa, type: 2}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _Glossines
+        second: 5.61654091
+      data:
+        first:
+          name: _Specularity
+        second: .804511309
+      data:
+        first:
+          name: _node_209
+        second: 4
+      data:
+        first:
+          name: _node_214
+        second: 3
+      data:
+        first:
+          name: _node_288
+        second: .428571433
+      data:
+        first:
+          name: _Glossiness
+        second: .473684222
+    m_Colors: {}
