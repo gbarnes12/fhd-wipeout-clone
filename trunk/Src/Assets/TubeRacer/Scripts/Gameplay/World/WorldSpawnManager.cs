@@ -35,8 +35,13 @@ namespace Gameplay.World
         #region Private Members
         private LinkedList<WorldTubeChunk> _tubeChunksList;
         private List<WorldTubeChunk> _tubeChunksQueue;
+		private List<WorldObstacle> _obstaclesList;
 		private float _vehicleSpeed;
         #endregion
+
+		#region Public Members
+
+		#endregion
 
         #region Construct
         /// <summary>
@@ -116,12 +121,37 @@ namespace Gameplay.World
                 chunk.transform.position = new Vector3(chunk.transform.position.x, chunk.transform.position.y, lastNode.Value.transform.position.z + 350);
                 this._tubeChunksList.AddLast(chunk);
                 this._tubeChunksQueue.Remove(chunk);
+				AddRandomObstacleToChunk(chunk);
 				chunk.gameObject.SetActive(true);
             }
 
             copiedList.Clear();
             yield break;
         }
+
+		/// <summary>
+		/// Adds the random obstacle.
+		/// </summary>
+		/// <returns>The random obstacle.</returns>
+		private void AddRandomObstacleToChunk(WorldTubeChunk chunk)
+		{
+			if(_obstaclesList == null)
+				return;
+
+			int rndObstacle = (int)Random.Range(0, _obstaclesList.Count);
+			WorldObstacle obstacle = (rndObstacle > _obstaclesList.Count)? _obstaclesList[rndObstacle-1] : _obstaclesList[rndObstacle];
+
+			if(obstacle.gameObject.activeSelf)
+				return;
+
+			obstacle.transform.parent = chunk.transform;
+			obstacle.transform.localPosition = Vector3.zero;
+
+			float rndRot = Random.Range(0.0f, 360.0f);
+			obstacle.transform.eulerAngles = new Vector3(obstacle.transform.eulerAngles.x, obstacle.transform.eulerAngles.y, rndRot);
+
+			obstacle.gameObject.SetActive(true);
+		}
         #endregion
 
         #region Public Methods
@@ -129,18 +159,42 @@ namespace Gameplay.World
         /// Adds the chunk to the queue in order to respawn it.
         /// </summary>
         /// <param name="chunk">The chunk</param>
-        public void AddChunkToQueue(WorldTubeChunk chunk)
+        public IEnumerator AddChunkToQueue(WorldTubeChunk chunk)
         {
 			if (chunk == null)
-				return;
+				yield break;
 
             this._tubeChunksList.Remove(chunk);
             this._tubeChunksQueue.Add(chunk);
+
+			WorldObstacle[] obstacles = chunk.transform.GetComponentsInChildren<WorldObstacle>();
+			foreach(WorldObstacle obstacle in obstacles)
+			{
+				obstacle.transform.parent = null;
+				obstacle.gameObject.SetActive(false);
+				yield return null;
+			}
+
 			chunk.gameObject.SetActive(false);
 
              if(this._tubeChunksQueue.Count >= 3)
                  StartCoroutine("SpawnTubeChunks");
         }
+
+		/// <summary>
+		/// Registers the obstacle.
+		/// </summary>
+		/// <param name="obstacle">Obstacle.</param>
+		public void RegisterObstacle(WorldObstacle obstacle)
+		{
+			if(_obstaclesList == null)
+				_obstaclesList = new List<WorldObstacle>();
+
+			if(obstacle == null)
+				return;
+
+			this._obstaclesList.Add (obstacle);
+		}
         #endregion
 
     }
