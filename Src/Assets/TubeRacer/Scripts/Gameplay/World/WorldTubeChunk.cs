@@ -30,7 +30,7 @@ namespace Gameplay.World
             if (!other.tag.Equals("Player"))
                 return;
 
-            WorldSpawnManager.Instance.AddChunkToQueue(this);
+            StartCoroutine(WorldSpawnManager.Instance.AddChunkToQueue(this));
         }
 		#endregion
     }
