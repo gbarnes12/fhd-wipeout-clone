@@ -144,13 +144,23 @@ namespace Gameplay.World
 			if(obstacle.gameObject.activeSelf)
 				return;
 
-			obstacle.transform.parent = chunk.transform;
-			obstacle.transform.localPosition = Vector3.zero;
+			obstacle.AttachToChunk(chunk);
+			obstacle.Initialize();
+		}
 
-			float rndRot = Random.Range(0.0f, 360.0f);
-			obstacle.transform.eulerAngles = new Vector3(obstacle.transform.eulerAngles.x, obstacle.transform.eulerAngles.y, rndRot);
-
-			obstacle.gameObject.SetActive(true);
+		/// <summary>
+		/// Removes the obstacles from chunk.
+		/// </summary>
+		/// <param name="chunk">Chunk.</param>
+		private IEnumerator RemoveObstaclesFromChunk(WorldTubeChunk chunk)
+		{
+			WorldObstacle[] obstacles = chunk.transform.GetComponentsInChildren<WorldObstacle>();
+			foreach(WorldObstacle obstacle in obstacles)
+			{
+				obstacle.DetachFromChunk();
+				obstacle.gameObject.SetActive(false);
+				yield return null;
+			}
 		}
         #endregion
 
@@ -167,13 +177,7 @@ namespace Gameplay.World
             this._tubeChunksList.Remove(chunk);
             this._tubeChunksQueue.Add(chunk);
 
-			WorldObstacle[] obstacles = chunk.transform.GetComponentsInChildren<WorldObstacle>();
-			foreach(WorldObstacle obstacle in obstacles)
-			{
-				obstacle.transform.parent = null;
-				obstacle.gameObject.SetActive(false);
-				yield return null;
-			}
+			StartCoroutine(RemoveObstaclesFromChunk(chunk));
 
 			chunk.gameObject.SetActive(false);
 
