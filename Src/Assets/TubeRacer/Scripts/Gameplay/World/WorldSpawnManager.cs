@@ -145,7 +145,7 @@ namespace Gameplay.World
 				return;
 
 			obstacle.AttachToChunk(chunk);
-			obstacle.Initialize();
+			obstacle.gameObject.SetActive(true);
 		}
 
 		/// <summary>
