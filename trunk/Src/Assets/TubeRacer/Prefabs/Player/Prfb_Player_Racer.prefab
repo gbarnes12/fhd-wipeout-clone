@@ -457,7 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bda007744aa7a3248975b12766b26fcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MediaSpeed: 100
+  MediaSpeed: 400
   vehicleEngine: {fileID: 8200000}
   vehicleEvade: {fileID: 8200002}
 --- !u!114 &11400008
@@ -473,6 +473,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 400
   RotateVelocity: 100
+  LeftHand: {fileID: 0}
+  RightHand: {fileID: 0}
+  InputMargin: 0
+  RightInArea: 0
+  LeftInArea: 0
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1

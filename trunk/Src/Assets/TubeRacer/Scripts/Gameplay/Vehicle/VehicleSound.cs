@@ -11,17 +11,16 @@ namespace Gameplay.Vehicle
 	{
 		//------------------
 		//FINAL
-
+		
 		#region Public Inspector Members
-		public float MediaSpeed = 100.0f; //speed at which the audio pitch is 1.0
+		public float MediaSpeed = 400.0f; //speed at which the audio pitch is 1.0
 		public AudioSource vehicleEngine;
 		public AudioSource vehicleEvade;
 		#endregion
-
+		
 		#region Private Members
-		private float _currentSpeed = 100.0f;
 		#endregion
-
+		
 		#region Unity Methods
 		/// <summary>
 		/// Update this instance.
@@ -30,19 +29,24 @@ namespace Gameplay.Vehicle
 		{
 			EngineSound ();
 			EvadeSound ();
-
+			
 		}
-
+		
 		/// <summary>
 		/// Engines the sound.
 		/// </summary>
 		void EngineSound() 
 		{
-			//TO-DO: Get Speed of Current Tube
-			//currentSpeed = getCurrentSpeed();
-			vehicleEngine.pitch = this._currentSpeed / this.MediaSpeed;
+			GameObject player = GameObject.FindGameObjectWithTag ("Player");
+			VehicleController controller = player.GetComponent<VehicleController> ();
+			float currentSpeed = controller.Speed;
+			if (currentSpeed < 100)
+				currentSpeed = 100;
+			else if (currentSpeed > 1200)
+				currentSpeed = 1200;
+			vehicleEngine.pitch = currentSpeed / this.MediaSpeed;
 		}
-
+		
 		/// <summary>
 		/// Plays the evade sound.
 		/// </summary>
