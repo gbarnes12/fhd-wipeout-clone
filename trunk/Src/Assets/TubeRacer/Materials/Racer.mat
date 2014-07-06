@@ -31,14 +31,14 @@ Material:
         first:
           name: _Normal
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: c7e26deb99c5ab34a9f9b72f41bfc465, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _node_206
         second:
-          m_Texture: {fileID: 2800000, guid: 4804e3040859d2647bbd584c929a73b5, type: 3}
+          m_Texture: {fileID: 2800000, guid: 8a758778e34919d4a9837886f4c22f06, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -68,7 +68,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: .571428597
+        second: .357142866
     m_Colors:
       data:
         first:
