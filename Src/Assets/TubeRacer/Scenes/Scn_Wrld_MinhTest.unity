@@ -1653,7 +1653,7 @@ Transform:
   m_Children:
   - {fileID: 1839558930}
   m_Father: {fileID: 1024674405}
-  m_RootOrder: 3
+  m_RootOrder: 6
 --- !u!114 &382753186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1838,7 +1838,7 @@ Transform:
   m_Children:
   - {fileID: 1878119097}
   m_Father: {fileID: 1024674405}
-  m_RootOrder: 6
+  m_RootOrder: 2
 --- !u!114 &439530400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3717,6 +3717,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 609380186}
   - 114: {fileID: 609380187}
+  - 114: {fileID: 609380188}
   m_Layer: 0
   m_Name: Prfb_Glbl_WorldManager
   m_TagString: Untagged
@@ -3747,6 +3748,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 570c4e48f36020140a302d54107b5189, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &609380188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 609380185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3c5c103652fa34ba5af0c61edcd910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &624558194
@@ -4206,7 +4218,7 @@ Transform:
   m_Children:
   - {fileID: 1555647843}
   m_Father: {fileID: 1024674405}
-  m_RootOrder: 0
+  m_RootOrder: 3
 --- !u!114 &697961392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4462,7 +4474,7 @@ Transform:
   m_Children:
   - {fileID: 991950365}
   m_Father: {fileID: 1024674405}
-  m_RootOrder: 2
+  m_RootOrder: 5
 --- !u!114 &776352358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5490,13 +5502,13 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 2049485625}
+  - {fileID: 1614993036}
+  - {fileID: 439530399}
   - {fileID: 697961391}
   - {fileID: 1715369960}
   - {fileID: 776352357}
   - {fileID: 382753185}
-  - {fileID: 2049485625}
-  - {fileID: 1614993036}
-  - {fileID: 439530399}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!1 &1031909342
@@ -7773,7 +7785,7 @@ Transform:
   m_Children:
   - {fileID: 1250446600}
   m_Father: {fileID: 1024674405}
-  m_RootOrder: 5
+  m_RootOrder: 1
 --- !u!114 &1614993037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8419,7 +8431,7 @@ Transform:
   m_Children:
   - {fileID: 1298168226}
   m_Father: {fileID: 1024674405}
-  m_RootOrder: 1
+  m_RootOrder: 4
 --- !u!1 &1730045586
 GameObject:
   m_ObjectHideFlags: 0
@@ -9850,7 +9862,7 @@ Transform:
   m_Children:
   - {fileID: 1104632623}
   m_Father: {fileID: 1024674405}
-  m_RootOrder: 4
+  m_RootOrder: 0
 --- !u!114 &2049485626
 MonoBehaviour:
   m_ObjectHideFlags: 0
