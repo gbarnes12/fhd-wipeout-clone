@@ -5,7 +5,7 @@ public class ScoreController : MonoBehaviour {
 
 
 
-	//Wenn die Runde ENDET wird gameRunning auf false gesetzt//
+	//Wenn die Runde ENDET wird gameRunning auf false gesetzt
 	public bool gameRunning;
 
 
@@ -22,9 +22,24 @@ public class ScoreController : MonoBehaviour {
 
 	private int currentFrame = 0;
 	private int points = 0;
+	private GuiPoints guiPoints;
 
 	void Start() {
 		newGame ();
+
+		//Game Object mit dem Tag GUI_Points finden
+		GameObject guiHeadUp = GameObject.FindGameObjectWithTag ("GUI_Points");
+		if (guiHeadUp == null)
+		{
+			Debug.LogError("There is no Gui_Points object in the scene!");
+			return;
+		}
+
+		//Instanz des Scripts GuiPoints auf dem GameObject finden, Zugriff ermöglichen
+		guiPoints = guiHeadUp.GetComponent <GuiPoints>();
+
+
+
 	}
 
 	void Update () {
@@ -37,15 +52,13 @@ public class ScoreController : MonoBehaviour {
 	private void CountPoints() {
 		if (currentFrame % 10 == 0) {
 			points++;
-			Debug.Log (points);
+
+			//Punkte an die Gui übertragen
+			guiPoints.Points = points;
 		}
 
 	}
 
-	void OnGUI() {
-			GUI.Box (new Rect (10, 10, 50, 40), "Points" + "\n" + points);
-
-	}
 
 
 
