@@ -5,7 +5,7 @@ public class ScoreController : MonoBehaviour {
 
 
 
-	//Wenn die Runde ENDET wird gameRunning auf false gesetzt
+	//Wenn die Runde ENDET wird gameRunning auf false gesetzt//
 	public bool gameRunning;
 
 
