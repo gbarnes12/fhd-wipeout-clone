@@ -42,7 +42,7 @@ public class ScoreController : MonoBehaviour {
 
 	}
 
-	void Update () {
+	void FixedUpdate () {
 		if (gameRunning) {
 			currentFrame++;
 			CountPoints();
@@ -52,7 +52,7 @@ public class ScoreController : MonoBehaviour {
 	private void CountPoints() {
 		if (currentFrame % 10 == 0) {
 			points++;
-
+		
 			//Punkte an die Gui übertragen
 			guiPoints.Points = points;
 		}
