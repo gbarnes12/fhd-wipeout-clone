@@ -16,6 +16,7 @@ public class VehicleController : MonoBehaviour
 	public bool LeftInArea = false;
 
 	public bool GameRunning = true;
+	public bool CarReconfigure = false;
 	#endregion
 
 	#region Private Members
@@ -39,23 +40,31 @@ public class VehicleController : MonoBehaviour
 	/// </summary>
 	void Update () 
 	{
-		if(RightInArea && LeftInArea)
-		{
-			float yDif = LeftHand.position.y - RightHand.position.y;
-			if(Mathf.Abs(yDif) > InputMargin) 
+		if(GameRunning){
+			if(RightInArea && LeftInArea)
 			{
-				this._dir = ((yDif) > 0.0f) ? 1.0f : -1.0f;
-				this._rotateVelocityMult = 1.0f + ((Mathf.Abs(yDif) * 0.1f)) ;
-			}else{
+				float yDif = LeftHand.position.y - RightHand.position.y;
+				if(Mathf.Abs(yDif) > InputMargin) 
+				{
+					this._dir = ((yDif) > 0.0f) ? 1.0f : -1.0f;
+					this._rotateVelocityMult = 1.0f + ((Mathf.Abs(yDif) * 0.1f)) ;
+				}else{
+					this._dir = 0.0f;
+					this._rotateVelocityMult = 0.0f;
+				}
+
+			}else
 				this._dir = 0.0f;
-				this._rotateVelocityMult = 0.0f;
-			}
 
-		}else
-			this._dir = 0.0f;
-
-		if(GameRunning)
 			this.transform.rotation *= Quaternion.Euler (0, 0, this._dir * this._rotateVelocityMult * RotateVelocity * Time.deltaTime);
+		}else{
+			if(!GameRunning && !CarReconfigure){
+				Speed = -500;
+				CarReconfigure = true;
+			}else{
+				Speed = 0;
+			}
+		}
 	}
 	#endregion
 }
