@@ -36,10 +36,10 @@ public class VehicleCollision : MonoBehaviour
 		if (!other.gameObject.name.Equals("Prfb_Lvl_Tube")) {
 
 				vehicleExplosion.Play();
+
 				vehicleSound.GameRunning = false;
 				scoreController.gameRunning = false;
-				Debug.Log(vehicleSound.GameRunning);
-				//vehicleController.GameIsRunning = false;
+				vehicleController.GameRunning = false;
 
 				//Vector3 posRacer = gameObject.transform.position+new Vector3(0,0,-13.5f);
 
@@ -47,7 +47,7 @@ public class VehicleCollision : MonoBehaviour
 				//Object flames = Instantiate(fire, posRacer, Quaternion.identity);
 
 				//Destroy(vehicle.gameObject);
-				Destroy(thruster.gameObject);
+				//Destroy(thruster.gameObject);
 
 				Debug.Log ("Collision bla with " + other.gameObject.name);
 
