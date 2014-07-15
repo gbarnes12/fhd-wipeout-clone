@@ -16,6 +16,8 @@ namespace Gameplay.Vehicle
 		public float MediaSpeed = 400.0f; //speed at which the audio pitch is 1.0
 		public AudioSource vehicleEngine;
 		public AudioSource vehicleEvade;
+
+		public bool GameRunning = true;
 		#endregion
 		
 		#region Private Members
@@ -27,8 +29,10 @@ namespace Gameplay.Vehicle
 		/// </summary>
 		void Update () 
 		{
-			EngineSound ();
-			EvadeSound ();
+			if(GameRunning){
+				EngineSound ();
+				EvadeSound ();
+			}			
 			
 		}
 		
