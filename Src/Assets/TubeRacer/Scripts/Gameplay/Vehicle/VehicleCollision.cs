@@ -12,6 +12,7 @@ public class VehicleCollision : MonoBehaviour
 	private VehicleController vehicleController;
 	private VehicleSound vehicleSound;
 	private ScoreController scoreController;
+	private GuiReplay guiReplay;
 
 	private GameObject player;
 	private GameObject vehicle;
@@ -19,7 +20,7 @@ public class VehicleCollision : MonoBehaviour
 
 
 	void Start(){
-		Debug.Log ("Test");
+		guiReplay = GameObject.FindGameObjectWithTag ("GUI_Replay").GetComponent<GuiReplay>(); 
 		scoreController = GameObject.FindGameObjectWithTag ("WorldManager").GetComponent<ScoreController> ();
 		thruster = GameObject.FindGameObjectWithTag ("Thruster");
 		player = GameObject.FindGameObjectWithTag ("Player");
@@ -41,13 +42,13 @@ public class VehicleCollision : MonoBehaviour
 				scoreController.gameRunning = false;
 				vehicleController.GameRunning = false;
 
+				
+				guiReplay.StartMenuReplay();
+
 				//Vector3 posRacer = gameObject.transform.position+new Vector3(0,0,-13.5f);
 
 				//Object exp = Instantiate(explosion, posRacer, Quaternion.identity);
 				//Object flames = Instantiate(fire, posRacer, Quaternion.identity);
-
-				//Destroy(vehicle.gameObject);
-				//Destroy(thruster.gameObject);
 
 				Debug.Log ("Collision bla with " + other.gameObject.name);
 
