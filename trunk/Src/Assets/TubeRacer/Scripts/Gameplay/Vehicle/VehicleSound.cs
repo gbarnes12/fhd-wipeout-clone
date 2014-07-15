@@ -29,10 +29,14 @@ namespace Gameplay.Vehicle
 		/// </summary>
 		void Update () 
 		{
-			if(GameRunning){
-				EngineSound ();
-				EvadeSound ();
-			}			
+
+			EngineSound ();
+			EvadeSound ();
+
+			if (!GameRunning) {
+				vehicleEngine.audio.Stop();
+			}
+						
 			
 		}
 		
