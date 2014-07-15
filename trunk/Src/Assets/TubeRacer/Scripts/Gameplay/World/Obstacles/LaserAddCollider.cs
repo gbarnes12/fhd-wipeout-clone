@@ -16,7 +16,7 @@ public class LaserAddCollider : MonoBehaviour {
 		caps.transform.localPosition = start + (end-start) / 2;
 		//caps.transform.LookAt(start);
 		caps.height = (end - start).magnitude;
-		caps.transform.localEulerAngles = new Vector3 (0,-40,0);
+		caps.transform.localEulerAngles = new Vector3 (0,0,45);
 	}
 
 }
