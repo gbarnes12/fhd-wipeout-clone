@@ -14,6 +14,8 @@ public class VehicleController : MonoBehaviour
 	public float InputMargin;
 	public bool RightInArea = false;
 	public bool LeftInArea = false;
+
+	public bool GameRunning = true;
 	#endregion
 
 	#region Private Members
@@ -52,7 +54,8 @@ public class VehicleController : MonoBehaviour
 		}else
 			this._dir = 0.0f;
 
-		this.transform.rotation *= Quaternion.Euler (0, 0, this._dir * this._rotateVelocityMult * RotateVelocity * Time.deltaTime);
+		if(GameRunning)
+			this.transform.rotation *= Quaternion.Euler (0, 0, this._dir * this._rotateVelocityMult * RotateVelocity * Time.deltaTime);
 	}
 	#endregion
 }
