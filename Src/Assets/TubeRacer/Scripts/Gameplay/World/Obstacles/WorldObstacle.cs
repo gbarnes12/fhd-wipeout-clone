@@ -29,7 +29,7 @@ namespace Gameplay.World
 		/// Attachs to chunk.
 		/// </summary>
 		/// <param name="chunk">Chunk.</param>
-		public void AttachToChunk(WorldTubeChunk chunk)
+		public virtual void AttachToChunk(WorldTubeChunk chunk)
 		{
 			this._cachedTransform.parent = chunk.transform;
 			this._cachedTransform.localPosition = Vector3.zero;
@@ -41,7 +41,7 @@ namespace Gameplay.World
 		/// <summary>
 		/// Detachs from chunk.
 		/// </summary>
-		public void DetachFromChunk()
+		public virtual void DetachFromChunk()
 		{
 			this._cachedTransform.parent = _obstaclesParent;
 			this._cachedTransform.localPosition = Vector3.zero;

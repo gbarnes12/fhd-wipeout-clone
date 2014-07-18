@@ -40,7 +40,7 @@ namespace Gameplay.World
 		#endregion
 		
 		#region Public Members
-		
+		public bool GameRunning = true;
 		VehicleController controller;
 		
 		#endregion
@@ -99,10 +99,13 @@ namespace Gameplay.World
 		/// </summary>
 		void Update()
 		{
-			this._vehicleSpeed = controller.Speed;
-			foreach(WorldTubeChunk tube in this._tubeChunksList)
+			if(GameRunning)
 			{
-				tube.transform.Translate(new Vector3(0.0f, 0.0f, -1.0f * Time.deltaTime * this._vehicleSpeed));
+				this._vehicleSpeed = controller.Speed;
+				foreach(WorldTubeChunk tube in this._tubeChunksList)
+				{
+					tube.transform.Translate(new Vector3(0.0f, 0.0f, -1.0f * Time.deltaTime * this._vehicleSpeed));
+				}
 			}
 			
 
@@ -142,7 +145,10 @@ namespace Gameplay.World
 		private void AddRandomObstacleToChunk(WorldTubeChunk chunk)
 		{
 			if(_obstaclesList == null)
+			{
+				Debug.Log("There are no obstacles in the scene! Please activate or add obstacles to scene");
 				return;
+			}
 			
 			int rndObstacle = (int)Random.Range(0, _obstaclesList.Count);
 			WorldObstacle obstacle = (rndObstacle > _obstaclesList.Count)? _obstaclesList[rndObstacle-1] : _obstaclesList[rndObstacle];

@@ -17,6 +17,7 @@ public class VehicleController : MonoBehaviour
 
 	public bool GameRunning = true;
 	public bool CarReconfigure = false;
+	public bool UseKinect = true;
 	#endregion
 
 	#region Private Members
@@ -41,20 +42,26 @@ public class VehicleController : MonoBehaviour
 	void Update () 
 	{
 		if(GameRunning){
-			if(RightInArea && LeftInArea)
+			if(UseKinect)
 			{
-				float yDif = LeftHand.position.y - RightHand.position.y;
-				if(Mathf.Abs(yDif) > InputMargin) 
+				if(RightInArea && LeftInArea)
 				{
-					this._dir = ((yDif) > 0.0f) ? 1.0f : -1.0f;
-					this._rotateVelocityMult = 1.0f + ((Mathf.Abs(yDif) * 0.1f)) ;
-				}else{
-					this._dir = 0.0f;
-					this._rotateVelocityMult = 0.0f;
-				}
+					float yDif = LeftHand.position.y - RightHand.position.y;
+					if(Mathf.Abs(yDif) > InputMargin) 
+					{
+						this._dir = ((yDif) > 0.0f) ? 1.0f : -1.0f;
+						this._rotateVelocityMult = 1.0f + ((Mathf.Abs(yDif) * 0.1f)) ;
+					}else{
+						this._dir = 0.0f;
+						this._rotateVelocityMult = 0.0f;
+					}
 
-			}else
-				this._dir = 0.0f;
+				}else
+					this._dir = 0.0f;
+			}else{ //Use keyboard input if no kinect is used, for debugging
+				this._dir = Input.GetAxis("Horizontal");
+				this._rotateVelocityMult = 1.0f;
+			}
 
 			this.transform.rotation *= Quaternion.Euler (0, 0, this._dir * this._rotateVelocityMult * RotateVelocity * Time.deltaTime);
 		}else{
