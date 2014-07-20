@@ -7,7 +7,7 @@ using System.Collections;
 public class VehicleController : MonoBehaviour 
 {
 	#region Public Inspector Variables
-	public float Speed = 400;
+	public float Speed = 200;
 	public int RotateVelocity = 100;	
 	public Transform LeftHand;
 	public Transform RightHand;
@@ -73,5 +73,20 @@ public class VehicleController : MonoBehaviour
 			}
 		}
 	}
+
+
+	private int currentFrame = 0;
+
+	void FixedUpdate() {
+		if (Speed < 400) {
+			currentFrame++;
+			if (currentFrame % 96 == 0) {
+				Speed++;
+				Debug.Log(Speed);
+			}
+		}
+		
+	}
+
 	#endregion
 }
