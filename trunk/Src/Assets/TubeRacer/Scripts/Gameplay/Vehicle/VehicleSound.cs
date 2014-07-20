@@ -13,7 +13,7 @@ namespace Gameplay.Vehicle
 		//FINAL
 		
 		#region Public Inspector Members
-		public float MediaSpeed = 400.0f; //speed at which the audio pitch is 1.0
+		public float MediaSpeed = 250.0f; //speed at which the audio pitch is 1.0
 		public AudioSource vehicleEngine;
 		public AudioSource vehicleEvade;
 
