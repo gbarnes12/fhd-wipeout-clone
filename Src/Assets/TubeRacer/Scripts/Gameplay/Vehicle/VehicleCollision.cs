@@ -39,8 +39,6 @@ namespace Gameplay.Vehicle
 			vehicleSound = player.GetComponent<VehicleSound> ();
 			vehicleController = player.GetComponent<VehicleController>();
 
-			vehicleSound.GameRunning = true;
-
 		}
 
 		/// <summary>
@@ -51,13 +49,10 @@ namespace Gameplay.Vehicle
 
 			if (other.gameObject.tag == "Obstacle") 
 			{
+					vehicleSound.PassBySound.Stop();
 					vehicleExplosion.Play();
 
 					worldSpawnManager.GameRunning = false;
-					vehicleSound.GameRunning = false;
-					scoreController.gameRunning = false;
-					vehicleController.GameRunning = false;
-
 					
 					guiReplay.StartMenuReplay();
 

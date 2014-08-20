@@ -99,7 +99,7 @@ namespace Gameplay.World
 		/// </summary>
 		void Update()
 		{
-			if(GameRunning)
+			if(this.GameRunning)
 			{
 				this._vehicleSpeed = controller.Speed;
 				foreach(WorldTubeChunk tube in this._tubeChunksList)

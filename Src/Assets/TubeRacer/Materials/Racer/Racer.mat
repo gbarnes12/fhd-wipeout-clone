@@ -48,11 +48,35 @@ Material:
           m_Texture: {fileID: 8900000, guid: f466cf7415226e046b096197eb7341aa, type: 2}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
-    m_Floats:
       data:
         first:
-          name: _Shininess
-        second: .19479017
+          name: _NormalMap
+        second:
+          m_Texture: {fileID: 2800000, guid: c7e26deb99c5ab34a9f9b72f41bfc465, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DiffuseIBL
+        second:
+          m_Texture: {fileID: 8900000, guid: 44ffc862fc175cc4f9f7d77b7b88ddd7, type: 2}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SpecularIBL
+        second:
+          m_Texture: {fileID: 8900000, guid: 44ffc862fc175cc4f9f7d77b7b88ddd7, type: 2}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DiffuseMapGlossA
+        second:
+          m_Texture: {fileID: 2800000, guid: 8a758778e34919d4a9837886f4c22f06, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
       data:
         first:
           name: _Specularity
@@ -69,6 +93,26 @@ Material:
         first:
           name: _Glossiness
         second: .357142866
+      data:
+        first:
+          name: _Shininess
+        second: .19479017
+      data:
+        first:
+          name: _DiffuseFresnel
+        second: 2.76785707
+      data:
+        first:
+          name: _AmbientVSIBL
+        second: .482142866
+      data:
+        first:
+          name: _IBLStrength
+        second: .571428537
+      data:
+        first:
+          name: _SpecularFresnel
+        second: 3.9913825e-10
     m_Colors:
       data:
         first:
@@ -78,3 +122,11 @@ Material:
         first:
           name: _SpecColor
         second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _DiffuseColor
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _SpecularColorGlossA
+        second: {r: .213235319, g: .213235319, b: .213235319, a: 1}

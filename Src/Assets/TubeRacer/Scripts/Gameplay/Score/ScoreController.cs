@@ -3,16 +3,8 @@ using System.Collections;
 
 public class ScoreController : MonoBehaviour {
 
-
-
-	//Wenn die Runde ENDET wird gameRunning auf false gesetzt
-	public bool gameRunning;
-
-
-
-	//Wenn die Runde STARTET wird newGame() aufgerufen
+		//Wenn die Runde STARTET wird newGame() aufgerufen
 	public void newGame() {
-		gameRunning = true;
 		currentFrame = 0;
 		points = 0;
 	}
@@ -43,7 +35,7 @@ public class ScoreController : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		if (gameRunning) {
+		if (Gameplay.World.WorldSpawnManager.Instance.GameRunning) {
 			currentFrame++;
 			CountPoints();
 		}

@@ -27,11 +27,55 @@ Material:
           m_Texture: {fileID: 2800000, guid: 71b4da1d05ab33f40b4b22dce3708216, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _NormalMap
+        second:
+          m_Texture: {fileID: 2800000, guid: 71b4da1d05ab33f40b4b22dce3708216, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DiffuseIBL
+        second:
+          m_Texture: {fileID: 8900000, guid: 44ffc862fc175cc4f9f7d77b7b88ddd7, type: 2}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SpecularIBL
+        second:
+          m_Texture: {fileID: 8900000, guid: 44ffc862fc175cc4f9f7d77b7b88ddd7, type: 2}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DiffuseMapGlossA
+        second:
+          m_Texture: {fileID: 2800000, guid: 7132526f503f92a4481edf08e4c1b7ad, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
           name: _Shininess
         second: .257891178
+      data:
+        first:
+          name: _DiffuseFresnel
+        second: 0
+      data:
+        first:
+          name: _AmbientVSIBL
+        second: .124999993
+      data:
+        first:
+          name: _IBLStrength
+        second: .410714269
+      data:
+        first:
+          name: _SpecularFresnel
+        second: .0660714284
     m_Colors:
       data:
         first:
@@ -41,3 +85,11 @@ Material:
         first:
           name: _SpecColor
         second: {r: .433823526, g: .433823526, b: .433823526, a: 1}
+      data:
+        first:
+          name: _DiffuseColor
+        second: {r: .889705896, g: .958924949, b: 1, a: 1}
+      data:
+        first:
+          name: _SpecularColorGlossA
+        second: {r: .33088237, g: .33088237, b: .33088237, a: 1}

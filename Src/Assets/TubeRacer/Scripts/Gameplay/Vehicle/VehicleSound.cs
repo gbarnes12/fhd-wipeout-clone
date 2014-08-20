@@ -14,30 +14,24 @@ namespace Gameplay.Vehicle
 		
 		#region Public Inspector Members
 		public float MediaSpeed = 250.0f; //speed at which the audio pitch is 1.0
-		public AudioSource vehicleEngine;
-		public AudioSource vehicleEvade;
+		public AudioSource VehicleEngine;
+		public AudioSource VehicleEvade;
+		public AudioSource PassBySound;
+		#endregion
 
-		public bool GameRunning = true;
-		#endregion
-		
-		#region Private Members
-		#endregion
-		
 		#region Unity Methods
 		/// <summary>
 		/// Update this instance.
 		/// </summary>
 		void Update () 
 		{
-
-			EngineSound ();
-			EvadeSound ();
-
-			if (!GameRunning) {
-				vehicleEngine.audio.Stop();
-			}
-						
-			
+			if (!Gameplay.World.WorldSpawnManager.Instance.GameRunning) {
+				VehicleEngine.Stop();
+				VehicleEvade.Stop();
+			}else{
+				EngineSound ();
+				EvadeSound ();
+			}			
 		}
 		
 		/// <summary>
@@ -52,7 +46,7 @@ namespace Gameplay.Vehicle
 				currentSpeed = 100;
 			else if (currentSpeed > 1200)
 				currentSpeed = 1200;
-			vehicleEngine.pitch = currentSpeed / this.MediaSpeed;
+			VehicleEngine.pitch = currentSpeed / this.MediaSpeed;
 		}
 		
 		/// <summary>
@@ -61,13 +55,13 @@ namespace Gameplay.Vehicle
 		void EvadeSound() 
 		{
 			if (Input.GetButtonDown ("Horizontal")) {
-				vehicleEvade.loop = true;
-				vehicleEvade.Play ();
+				VehicleEvade.loop = true;
+				VehicleEvade.Play ();
 				
 			}
 			if (Input.GetButtonUp("Horizontal")) {
-				vehicleEvade.loop = false;
-				vehicleEvade.Stop();
+				VehicleEvade.loop = false;
+				VehicleEvade.Stop();
 			}
 		}
 		#endregion
