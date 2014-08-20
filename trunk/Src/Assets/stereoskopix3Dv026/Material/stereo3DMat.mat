@@ -38,11 +38,11 @@ Material:
       data:
         first:
           name: _Weave_X
-        second: 1
+        second: 1920
       data:
         first:
           name: _Weave_Y
-        second: 102
+        second: 1080
     m_Colors:
       data:
         first:
@@ -67,11 +67,11 @@ Material:
       data:
         first:
           name: _Balance_Right_G
-        second: {r: 0, g: 1, b: 0, a: 0}
+        second: {r: .298999995, g: .587000012, b: .114, a: 0}
       data:
         first:
           name: _Balance_Right_B
-        second: {r: 0, g: 0, b: 1, a: 0}
+        second: {r: .298999995, g: .587000012, b: .114, a: 0}
 --- !u!1002 &2100001
 EditorExtensionImpl:
   serializedVersion: 6

@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Mat_Steelbar
-  m_Shader: {fileID: 4, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 23, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -34,6 +34,13 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Cube
+        second:
+          m_Texture: {fileID: 8900000, guid: 44ffc862fc175cc4f9f7d77b7b88ddd7, type: 2}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
@@ -42,7 +49,7 @@ Material:
       data:
         first:
           name: _Shininess
-        second: .757599175
+        second: .601286173
       data:
         first:
           name: _RefractionIntensity
@@ -55,4 +62,8 @@ Material:
       data:
         first:
           name: _SpecColor
-        second: {r: .764705896, g: .719723225, b: .719723225, a: 1}
+        second: {r: .683823526, g: .633542359, b: .633542359, a: 1}
+      data:
+        first:
+          name: _ReflectColor
+        second: {r: .647058845, g: .647058845, b: .647058845, a: .501960814}

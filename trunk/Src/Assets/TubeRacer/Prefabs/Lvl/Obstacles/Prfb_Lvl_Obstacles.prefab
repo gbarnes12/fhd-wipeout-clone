@@ -27,6 +27,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400002}
   - 114: {fileID: 11400002}
+  - 54: {fileID: 5400002}
   m_Layer: 0
   m_Name: Prfb_Lvl_Obstacle_Generator
   m_TagString: Obstacle
@@ -60,6 +61,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400006}
   - 114: {fileID: 11400006}
+  - 54: {fileID: 5400008}
   m_Layer: 0
   m_Name: Prfb_Lvl_Obstacle_Laser
   m_TagString: Obstacle
@@ -78,7 +80,6 @@ GameObject:
   - 120: {fileID: 12000000}
   - 108: {fileID: 10800000}
   - 136: {fileID: 13600000}
-  - 54: {fileID: 5400008}
   m_Layer: 0
   m_Name: Laser 1
   m_TagString: Obstacle
@@ -235,7 +236,6 @@ GameObject:
   - 4: {fileID: 400026}
   - 33: {fileID: 3300010}
   - 23: {fileID: 2300010}
-  - 54: {fileID: 5400002}
   - 65: {fileID: 6500002}
   m_Layer: 0
   m_Name: Generator 5
@@ -326,7 +326,6 @@ GameObject:
   - 120: {fileID: 12000002}
   - 108: {fileID: 10800002}
   - 136: {fileID: 13600002}
-  - 54: {fileID: 5400010}
   m_Layer: 0
   m_Name: Laser 3
   m_TagString: Obstacle
@@ -379,7 +378,6 @@ GameObject:
   - 120: {fileID: 12000004}
   - 108: {fileID: 10800004}
   - 136: {fileID: 13600004}
-  - 54: {fileID: 5400012}
   m_Layer: 0
   m_Name: Laser 2
   m_TagString: Obstacle
@@ -397,7 +395,6 @@ GameObject:
   - 4: {fileID: 400044}
   - 33: {fileID: 3300026}
   - 23: {fileID: 2300026}
-  - 54: {fileID: 5400014}
   - 65: {fileID: 6500016}
   m_Layer: 0
   m_Name: Generator 4
@@ -416,7 +413,6 @@ GameObject:
   - 4: {fileID: 400046}
   - 33: {fileID: 3300028}
   - 23: {fileID: 2300028}
-  - 54: {fileID: 5400016}
   - 65: {fileID: 6500018}
   m_Layer: 0
   m_Name: Generator 3
@@ -435,7 +431,6 @@ GameObject:
   - 4: {fileID: 400048}
   - 33: {fileID: 3300030}
   - 23: {fileID: 2300030}
-  - 54: {fileID: 5400018}
   - 65: {fileID: 6500020}
   m_Layer: 0
   m_Name: Generator 2
@@ -454,7 +449,6 @@ GameObject:
   - 4: {fileID: 400050}
   - 33: {fileID: 3300032}
   - 23: {fileID: 2300032}
-  - 54: {fileID: 5400020}
   - 65: {fileID: 6500022}
   m_Layer: 0
   m_Name: Generator 1
@@ -1270,24 +1264,24 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!54 &5400002
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100026}
+  m_GameObject: {fileID: 100002}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!54 &5400004
 Rigidbody:
@@ -1300,9 +1294,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!54 &5400006
 Rigidbody:
@@ -1315,114 +1309,24 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!54 &5400008
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100008}
+  m_GameObject: {fileID: 100006}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!54 &5400010
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100036}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!54 &5400012
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100042}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!54 &5400014
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100044}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!54 &5400016
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100046}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!54 &5400018
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100048}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!54 &5400020
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100050}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!64 &6400000
 MeshCollider:
@@ -1710,6 +1614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4087dcb2f4b99b48a77eff1f259c0e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PassByPitch: 1
   Generators:
   - {fileID: 400050}
   - {fileID: 400048}
@@ -1727,6 +1632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abb45ea1ab5cf01479976f9f5ae4ef1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PassByPitch: 1
   Steelbars:
   - {fileID: 400034}
   - {fileID: 400032}
@@ -1746,6 +1652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c64033a45640bdd44902fa7708ae5f4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PassByPitch: 1
   Lasers:
   - {fileID: 400008}
   - {fileID: 400042}
@@ -1758,9 +1665,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 100020}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80ae87dcf52d7854b97fbf399309cdc8, type: 3}
+  m_Script: {fileID: 11500000, guid: ad953ddb5a95ad445891fba052c797c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PassByPitch: 1
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1769,9 +1677,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 100022}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a83db227221943d4d942f4cc4bcf151e, type: 3}
+  m_Script: {fileID: 11500000, guid: ad953ddb5a95ad445891fba052c797c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PassByPitch: 1
 --- !u!120 &12000000
 LineRenderer:
   m_ObjectHideFlags: 1

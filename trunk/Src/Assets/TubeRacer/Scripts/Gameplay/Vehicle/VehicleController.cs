@@ -7,15 +7,14 @@ using System.Collections;
 public class VehicleController : MonoBehaviour 
 {
 	#region Public Inspector Variables
-	public float Speed = 200;
 	public int RotateVelocity = 100;	
 	public Transform LeftHand;
 	public Transform RightHand;
+	public float Speed = 200;
 	public float InputMargin;
 	public bool RightInArea = false;
 	public bool LeftInArea = false;
-
-	public bool GameRunning = true;
+	
 	public bool CarReconfigure = false;
 	public bool UseKinect = true;
 	#endregion
@@ -24,6 +23,8 @@ public class VehicleController : MonoBehaviour
 	private Transform _cachedTransform;
 	private float _dir;
 	private float _rotateVelocityMult;
+	private int _currentFrame = 0;
+	private MotionBlur _motionBlur;
 	#endregion
 
 	#region Unity Methods
@@ -34,6 +35,7 @@ public class VehicleController : MonoBehaviour
 	void Start()
 	{
 		this._cachedTransform = this.transform;
+		this._motionBlur = Camera.main.GetComponent<MotionBlur>();
 	}
 
 	/// <summary>
@@ -41,7 +43,7 @@ public class VehicleController : MonoBehaviour
 	/// </summary>
 	void Update () 
 	{
-		if(GameRunning){
+		if(Gameplay.World.WorldSpawnManager.Instance.GameRunning){
 			if(UseKinect)
 			{
 				if(RightInArea && LeftInArea)
@@ -65,7 +67,7 @@ public class VehicleController : MonoBehaviour
 
 			this.transform.rotation *= Quaternion.Euler (0, 0, this._dir * this._rotateVelocityMult * RotateVelocity * Time.deltaTime);
 		}else{
-			if(!GameRunning && !CarReconfigure){
+			if(!Gameplay.World.WorldSpawnManager.Instance.GameRunning && !CarReconfigure){
 				Speed = -500;
 				CarReconfigure = true;
 			}else{
@@ -74,14 +76,16 @@ public class VehicleController : MonoBehaviour
 		}
 	}
 
-
-	private int currentFrame = 0;
-
+	/// <summary>
+	/// Fixeds the update.
+	/// </summary>
 	void FixedUpdate() {
 		if (Speed < 400) {
-			currentFrame++;
-			if (currentFrame % 96 == 0) {
+			_currentFrame++;
+			if (_currentFrame % 96 == 0) {
 				Speed++;
+				if(this._motionBlur.blurAmount < 0.5f)
+					this._motionBlur.blurAmount += 0.005f;
 				Debug.Log(Speed);
 			}
 		}

@@ -11,10 +11,7 @@ namespace Gameplay.World
 
 		#region Unity Methods
 		// Use this for initialization
-		public override void Start () 
-		{
-			base.Start();
-		}
+
 		#endregion
 
 		#region Public Methods

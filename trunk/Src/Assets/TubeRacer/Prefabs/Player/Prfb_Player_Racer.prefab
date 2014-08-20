@@ -31,6 +31,7 @@ GameObject:
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400004}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400012}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -50,6 +51,7 @@ GameObject:
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400006}
+  - 82: {fileID: 8200006}
   m_Layer: 0
   m_Name: Prfb_Player_Racer
   m_TagString: Player
@@ -175,7 +177,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &100020
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -239,7 +241,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: .0992623419, y: 0, z: 0, w: .995061338}
-  m_LocalPosition: {x: -.0441868529, y: -14.0210133, z: -35.0929337}
+  m_LocalPosition: {x: -.0441868529, y: -14.0210133, z: -35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400004}
@@ -261,6 +263,7 @@ Transform:
   - {fileID: 400008}
   - {fileID: 400010}
   - {fileID: 400018}
+  - {fileID: 400020}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &400006
@@ -335,7 +338,6 @@ Transform:
   m_Children:
   - {fileID: 400012}
   - {fileID: 400000}
-  - {fileID: 400020}
   - {fileID: 400024}
   m_Father: {fileID: 400004}
   m_RootOrder: 2
@@ -358,11 +360,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0843701661, y: .740118027, z: -5.12867737}
+  m_LocalPosition: {x: .0590197742, y: -24.8871861, z: -18.2327538}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 400016}
-  m_RootOrder: 2
+  m_Father: {fileID: 400004}
+  m_RootOrder: 7
 --- !u!4 &400022
 Transform:
   m_ObjectHideFlags: 1
@@ -370,7 +372,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100022}
   m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: 4.21056484e-07, y: -25.7179337, z: -3.53207779}
+  m_LocalPosition: {x: 4.21056484e-07, y: -25.7179298, z: -3.53207779}
   m_LocalScale: {x: .100000001, y: .100000001, z: .100000001}
   m_Children:
   - {fileID: 400014}
@@ -387,7 +389,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400016}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!20 &2000000
 Camera:
   m_ObjectHideFlags: 1
@@ -446,7 +448,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100014}
-  m_Mesh: {fileID: 4300000, guid: f2fe0b7df4fd32846b5a6512160b6930, type: 3}
+  m_Mesh: {fileID: 4300000, guid: afde8ef0b79823c49971da78e7daf3b6, type: 3}
 --- !u!54 &5400000
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -460,7 +462,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!54 &5400002
 Rigidbody:
@@ -503,7 +505,7 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -561,7 +563,7 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -619,7 +621,65 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!82 &8200006
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 50550587a775018418ef37695c4f7dc0, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -671,13 +731,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 478a2083ad114a07d000fbfb8d76c639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shader: {fileID: 0}
-  blurAmount: .800000012
+  shader: {fileID: 4800000, guid: e9ba2083ad114a07d000fbfb8d76c639, type: 3}
+  blurAmount: 0
   extraBlur: 0
 --- !u!114 &11400002
 MonoBehaviour:
@@ -685,18 +745,18 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34c3946ab5378473cb34bedd1c8194ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fogMode: 0
-  startDistance: 200
-  globalDensity: 1
+  startDistance: 900
+  globalDensity: .0199999996
   heightScale: 100
   height: 0
   globalFogColor: {r: .5, g: .5, b: .5, a: 1}
-  fogShader: {fileID: 0}
+  fogShader: {fileID: 4800000, guid: 70d8568987ac0499f952b54c7c13e265, type: 3}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -735,9 +795,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MediaSpeed: 100
-  vehicleEngine: {fileID: 8200000}
-  vehicleEvade: {fileID: 8200002}
-  GameRunning: 1
+  VehicleEngine: {fileID: 8200000}
+  VehicleEvade: {fileID: 8200002}
+  PassBySound: {fileID: 8200006}
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -749,14 +809,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cf0bffb4fbb8ea4894b1683b1f5d40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 400
   RotateVelocity: 100
   LeftHand: {fileID: 0}
   RightHand: {fileID: 0}
+  Speed: 400
   InputMargin: 0
   RightInArea: 0
   LeftInArea: 0
-  GameRunning: 1
   CarReconfigure: 0
   UseKinect: 0
 --- !u!114 &11400010
@@ -774,6 +833,39 @@ MonoBehaviour:
   explosion: {fileID: 0}
   fire: {fileID: 0}
   vehicleExplosion: {fileID: 8200004}
+--- !u!114 &11400012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6378012d8068b4bc59c6c1570dccaf63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stereoMaterial: {fileID: 2100000, guid: 854bd5fa5367544278650926af9a3271, type: 2}
+  format3D: 0
+  anaglyphOptions: 1
+  sideBySideOptions: 0
+  interlaceRows: 1080
+  checkerboardColumns: 1920
+  checkerboardRows: 1080
+  interaxial: .25
+  zeroParallax: 6
+  fieldOfView: 60
+  GuiVisible: 1
+  ToggleGuiKey: 9
+  ToggleToeInKey: 112
+  LeftRightKey: 121
+  LeftOnlyKey: 117
+  RightOnlyKey: 105
+  RightLeftKey: 111
+  trackObjKey: 116
+  cameraMethod: 0
+  cameraSelect: 0
+  cameraAspect: 1.33000004
+  saveCustomAspect: 0
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1

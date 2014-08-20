@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Racer_PBR
+  m_Shader: {fileID: 4800000, guid: 4b106a347d390d74db14157cade410fe, type: 3}
+  m_ShaderKeywords: []
+  m_CustomRenderQueue: -1
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _MainTex
+        second:
+          m_Texture: {fileID: 2800000, guid: 6b76b25f2beb0f743b99cda4564ecc29, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _BumpMap
+        second:
+          m_Texture: {fileID: 2800000, guid: b9b476b2412d3164f94cc42fdb6c7b93, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Normal
+        second:
+          m_Texture: {fileID: 2800000, guid: c7e26deb99c5ab34a9f9b72f41bfc465, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _node_206
+        second:
+          m_Texture: {fileID: 2800000, guid: 8a758778e34919d4a9837886f4c22f06, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _node_216
+        second:
+          m_Texture: {fileID: 8900000, guid: f466cf7415226e046b096197eb7341aa, type: 2}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _NormalMap
+        second:
+          m_Texture: {fileID: 2800000, guid: c7e26deb99c5ab34a9f9b72f41bfc465, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DiffuseIBL
+        second:
+          m_Texture: {fileID: 8900000, guid: 44ffc862fc175cc4f9f7d77b7b88ddd7, type: 2}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SpecularIBL
+        second:
+          m_Texture: {fileID: 8900000, guid: 44ffc862fc175cc4f9f7d77b7b88ddd7, type: 2}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DiffuseMapGlossA
+        second:
+          m_Texture: {fileID: 2800000, guid: 8a758778e34919d4a9837886f4c22f06, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _Specularity
+        second: 1
+      data:
+        first:
+          name: _node_209
+        second: 5
+      data:
+        first:
+          name: _node_214
+        second: 3
+      data:
+        first:
+          name: _Glossiness
+        second: .357142866
+      data:
+        first:
+          name: _Shininess
+        second: .19479017
+      data:
+        first:
+          name: _DiffuseFresnel
+        second: 2.41071439
+      data:
+        first:
+          name: _AmbientVSIBL
+        second: .517857134
+      data:
+        first:
+          name: _IBLStrength
+        second: .5
+      data:
+        first:
+          name: _SpecularFresnel
+        second: .121428564
+    m_Colors:
+      data:
+        first:
+          name: _Color
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _SpecColor
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _DiffuseColor
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _SpecularColorGlossA
+        second: {r: .20588237, g: .20588237, b: .20588237, a: 1}
