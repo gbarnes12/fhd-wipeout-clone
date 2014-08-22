@@ -3,56 +3,64 @@ using System.Collections;
 
 public class ScoreController : MonoBehaviour {
 
-		//Wenn die Runde STARTET wird newGame() aufgerufen
-	public void newGame() {
-		currentFrame = 0;
-		points = 0;
-	}
+	#region Private Members
+	private int _currentFrame = 0;
+	private int _points = 0;
+	private GuiPoints _guiPoints;
+	#endregion
 
-
-
-
-	private int currentFrame = 0;
-	private int points = 0;
-	private GuiPoints guiPoints;
-
-	void Start() {
+	#region Unity Methods
+	/// <summary>
+	/// Start this instance.
+	/// </summary>
+	void Start() 
+	{
 		newGame ();
 
 		//Game Object mit dem Tag GUI_Points finden
-		GameObject guiHeadUp = GameObject.FindGameObjectWithTag ("GUI_Points");
-		if (guiHeadUp == null)
+		_guiPoints = GameObject.FindGameObjectWithTag ("GUI").GetComponent<GuiPoints>();
+
+		if (_guiPoints == null)
 		{
-			Debug.LogError("There is no Gui_Points object in the scene!");
+			Debug.LogError("There is no GuiPoints script in the scene!");
 			return;
 		}
-
-		//Instanz des Scripts GuiPoints auf dem GameObject finden, Zugriff ermöglichen
-		guiPoints = guiHeadUp.GetComponent <GuiPoints>();
-
-
-
+	
 	}
 
-	void FixedUpdate () {
+	/// <summary>
+	/// Fixeds the update.
+	/// </summary>
+	void FixedUpdate () 
+	{
 		if (Gameplay.World.WorldSpawnManager.Instance.GameRunning) {
-			currentFrame++;
+			_currentFrame++;
 			CountPoints();
 		}
 	}
+	#endregion
 
-	private void CountPoints() {
-		if (currentFrame % 10 == 0) {
-			points++;
-		
-			//Punkte an die Gui übertragen
-			guiPoints.Points = points;
-		}
-
+	#region Private Methods
+	/// <summary>
+	/// //Wenn die Runde STARTET wird newGame() aufgerufen
+	/// </summary>
+	private void newGame() 
+	{
+		_currentFrame = 0;
+		_points = 0;
 	}
 
-
-
-
-
+	/// <summary>
+	/// Counts the points.
+	/// </summary>
+	private void CountPoints() 
+	{
+		if (_currentFrame % 10 == 0) {
+			_points++;
+		
+			//Punkte an die Gui übertragen
+			_guiPoints.Points = _points;
+		}
+	}
+	#endregion
 }

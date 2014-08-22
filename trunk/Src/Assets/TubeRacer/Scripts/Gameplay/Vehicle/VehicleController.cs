@@ -17,14 +17,24 @@ public class VehicleController : MonoBehaviour
 	
 	public bool CarReconfigure = false;
 	public bool UseKinect = true;
-	#endregion
 
+	public ParticleSystem LeftThruster;
+	public ParticleSystem RightThruster;
+	#endregion
+	
 	#region Private Members
 	private Transform _cachedTransform;
 	private float _dir;
 	private float _rotateVelocityMult;
 	private int _currentFrame = 0;
 	private MotionBlur _motionBlur;
+	#endregion
+
+	#region Public Members
+	public float MoveDirection
+	{
+		get { return this._dir; }
+	}
 	#endregion
 
 	#region Unity Methods
@@ -74,22 +84,25 @@ public class VehicleController : MonoBehaviour
 				Speed = 0;
 			}
 		}
+		
 	}
 
 	/// <summary>
 	/// Fixeds the update.
 	/// </summary>
 	void FixedUpdate() {
-		if (Speed < 400) {
-			_currentFrame++;
-			if (_currentFrame % 96 == 0) {
-				Speed++;
-				if(this._motionBlur.blurAmount < 0.5f)
-					this._motionBlur.blurAmount += 0.005f;
-				Debug.Log(Speed);
+		if(Gameplay.World.WorldSpawnManager.Instance.GameRunning)
+		{
+			if (Speed < 400) {
+				_currentFrame++;
+				if (_currentFrame % 96 == 0) {
+					Speed++;
+					if(this._motionBlur.blurAmount < 0.5f)
+						this._motionBlur.blurAmount += 0.005f;
+					Debug.Log(Speed);
+				}
 			}
 		}
-		
 	}
 
 	#endregion

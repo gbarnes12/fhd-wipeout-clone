@@ -7,11 +7,11 @@ namespace Gameplay.Vehicle
 	public class VehicleCollision : MonoBehaviour 
 	{
 		#region Public Inspector Members
-		public WorldSpawnManager worldSpawnManager;
-
-		public Transform explosion;
-		public Transform fire;
-		public AudioSource vehicleExplosion;
+		//public Transform explosion;
+		//public Transform fire;
+		//public AudioSource vehicleExplosion;
+		public GameObject Vehicle;
+		public GameObject VehicleFragments;
 		#endregion
 
 		#region Private Members
@@ -22,7 +22,6 @@ namespace Gameplay.Vehicle
 
 		private GameObject player;
 		private GameObject vehicle;
-		private GameObject thruster;
 		#endregion
 
 		#region Unity Methods
@@ -30,10 +29,8 @@ namespace Gameplay.Vehicle
 		/// Start this instance.
 		/// </summary>
 		void Start(){
-			guiReplay = GameObject.FindGameObjectWithTag ("GUI_Replay").GetComponent<GuiReplay>(); 
-			worldSpawnManager = GameObject.FindGameObjectWithTag ("WorldManager").GetComponent<WorldSpawnManager> ();
-			scoreController = worldSpawnManager.gameObject.GetComponent<ScoreController>();
-			thruster = GameObject.FindGameObjectWithTag ("Thruster");
+			guiReplay = GameObject.FindGameObjectWithTag ("GUI").GetComponent<GuiReplay>(); 
+			scoreController = Gameplay.World.WorldSpawnManager.Instance.GetComponent<ScoreController>();
 			player = GameObject.FindGameObjectWithTag ("Player");
 
 			vehicleSound = player.GetComponent<VehicleSound> ();
@@ -49,19 +46,28 @@ namespace Gameplay.Vehicle
 
 			if (other.gameObject.tag == "Obstacle") 
 			{
-					vehicleSound.PassBySound.Stop();
-					vehicleExplosion.Play();
+				//explode vehicle
+				GameObject fragments = (GameObject)Instantiate(this.VehicleFragments, this.Vehicle.transform.position,this.Vehicle.transform.rotation);
+				fragments.GetComponent<VehicleExplosion>().Explode(vehicleController.MoveDirection);
 
-					worldSpawnManager.GameRunning = false;
-					
-					guiReplay.StartMenuReplay();
+				Destroy(this.Vehicle);
 
-					//Vector3 posRacer = gameObject.transform.position+new Vector3(0,0,-13.5f);
+				//deactivate thrusters
+				vehicleController.LeftThruster.gameObject.SetActive(false);
+				vehicleController.RightThruster.gameObject.SetActive(false);
+				vehicleSound.PassBySound.Stop();
+				//vehicleExplosion.Play();
 
-					//Object exp = Instantiate(explosion, posRacer, Quaternion.identity);
-					//Object flames = Instantiate(fire, posRacer, Quaternion.identity);
+				Gameplay.World.WorldSpawnManager.Instance.GameRunning = false;
+				
+				guiReplay.StartMenuReplay();
 
-					Debug.Log ("Collision bla with " + other.gameObject.name);
+				//Vector3 posRacer = gameObject.transform.position+new Vector3(0,0,-13.5f);
+
+				//Object exp = Instantiate(explosion, posRacer, Quaternion.identity);
+				//Object flames = Instantiate(fire, posRacer, Quaternion.identity);
+
+				Debug.Log ("Collision bla with " + other.gameObject.name);
 			}
 		}
 		#endregion

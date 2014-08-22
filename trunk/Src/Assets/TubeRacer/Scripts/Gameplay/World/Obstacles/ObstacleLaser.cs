@@ -9,10 +9,6 @@ namespace Gameplay.World
 		public Transform[] Lasers;
 		#endregion
 
-		#region Unity Methods
-		// Use this for initialization
-
-		#endregion
 
 		#region Public Methods
 		/// <summary>
@@ -29,6 +25,9 @@ namespace Gameplay.World
 				float rndRotZ = Random.Range(0.0f, 360.0f);
 				laser.localEulerAngles = new Vector3(0,0, rndRotZ);
 			}
+
+			this.audio.Play();
+			
 		}
 		#endregion
 	}
