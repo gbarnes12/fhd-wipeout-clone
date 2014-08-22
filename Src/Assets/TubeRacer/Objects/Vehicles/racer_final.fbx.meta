@@ -1,14 +1,12 @@
 fileFormatVersion: 2
-guid: afde8ef0b79823c49971da78e7daf3b6
+guid: 4ebace786bb90124084a7a8ba0c37d3e
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
-    100000: racer
-    100002: //RootNode
-    400000: racer
-    400002: //RootNode
-    2300000: racer
-    3300000: racer
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
     4300000: racer
     9500000: //RootNode
   materials:

@@ -39,6 +39,8 @@ namespace Gameplay.Vehicle
 		/// </summary>
 		void EngineSound() 
 		{
+			if(!VehicleEngine.isPlaying)
+				VehicleEngine.Play();
 			GameObject player = GameObject.FindGameObjectWithTag ("Player");
 			VehicleController controller = player.GetComponent<VehicleController> ();
 			float currentSpeed = controller.Speed;

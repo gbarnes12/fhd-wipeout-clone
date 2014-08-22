@@ -1,12 +1,9 @@
-
 using UnityEngine;
 using System.Collections;
 
-
-
 public class GuiReplay : MonoBehaviour {
 
-
+	#region Private Members
 	private Texture2D _texMenuBackground;
 	private Texture2D _texMenuButton;
 	private Texture2D _texMenuButtonHover;
@@ -22,22 +19,23 @@ public class GuiReplay : MonoBehaviour {
 	private float _speed = 800.0f;
 
 	private string _playerName = "";
-	public bool _showMenuReplay = false;
 	private bool _isNewHighscore = false;
+	#endregion
 
+	#region Public Members
+	public bool _showMenuReplay = false;
 	public string _gameScene = "Scn_Wrld_Game";
 	public string _menuScene = "Scn_Gui_MainMenu";
+	#endregion
 
-
-
-
-
-	// Use this for initialization
-	private void Awake () {
-
+	#region Unity Methods
+	/// <summary>
+	/// Awake this instance.
+	/// </summary>
+	void Awake () 
+	{
 		//StartMenuReplay ();
 	
-
 		//Andere Menu teile laden
 		_highscore = this.GetComponent <GuiHighscoreMenu> ();
 		_credits = this.GetComponent <GuiCreditsMenu> ();
@@ -52,52 +50,69 @@ public class GuiReplay : MonoBehaviour {
 
 
 		//Texture assigned?
-		if (!_texMenuBackground) {
+		if (!_texMenuBackground) 
+		{
 			Debug.LogError("Can't find Texture 'TexGuiBackground' on path 'Resources/GUI/Textures' ");
 			return;
 		}
 		
 		//Texture assigned?
-		if (!_texMenuButton) {
+		if (!_texMenuButton) 
+		{
 			Debug.LogError("Can't find Texture 'TexGuiButton' on path 'Resources/GUI/Textures' ");
 			return;
 		}
 		
 		//Texture assigned?
-		if (!_texMenuButtonHover) {
+		if (!_texMenuButtonHover) 
+		{
 			Debug.LogError("Can't find Texture 'TexGuiButtonHover' on path 'Resources/GUI/Textures' ");
 			return;
 		}
 
 		//Texture assigned?
-		if (!_texMenuTextfield) {
+		if (!_texMenuTextfield) 
+		{
 			Debug.LogError("Can't find Texture 'TexGuiTextfield' on path 'Resources/GUI/Textures' ");
 			return;
 		}
 
 		//Texture assigned?
-		if (!_texMenuBackground2) {
+		if (!_texMenuBackground2) 
+		{
 			Debug.LogError("Can't find Texture 'TexGuiScoreBackground' on path 'Resources/GUI/Textures' ");
 			return;
 		}
 
-
 		//Font assigned?
-		if (!_font) {
+		if (!_font) 
+		{
 			Debug.LogError("Can't find Font 'FntDigitalNumbers' on path 'Resources/GUI/Textures'");
 			return;
 		}
-
-
-	}
-	
-	// Update is called once per frame
-	private void Update () {
-	
-	
 	}
 
-	private void SetGuiSkin (){
+	/// <summary>
+	/// Raises the GUI event.
+	/// </summary>
+	void OnGUI () 
+	{
+		if(_showMenuReplay)
+		{
+			SetGuiSkin ();
+			Rect menuContent = DrawBackground (0.3f);
+			DrawMenuButtons (menuContent,0.8f,300.0f, 20.0f);
+			AnimateMenuOnScreen (true);
+		}
+	}
+	#endregion
+
+	#region Private Methods
+	/// <summary>
+	/// Sets the GUI skin.
+	/// </summary>
+	private void SetGuiSkin ()
+	{
 	
 		//Font and Font Size for Label
 		GUI.skin.font = _font;
@@ -121,41 +136,34 @@ public class GuiReplay : MonoBehaviour {
 		GUI.skin.textField.focused.background = _texMenuTextfield;
 
 		GUI.skin.textField.focused.textColor = new Color (0.129f, 0.321f, 0.384f);
-
 	}
 
-	float GetAspectRatioHW (Texture2D aTexture){
-	
+	/// <summary>
+	/// Gets the aspect ratio H.
+	/// </summary>
+	/// <returns>The aspect ratio H.</returns>
+	/// <param name="aTexture">A texture.</param>
+	private float GetAspectRatioHW (Texture2D aTexture)
+	{
 		return ((float)aTexture.height  / (float)aTexture.width );
 	}
 
-	float GetAspectRatioWH (Texture2D aTexture){
-		
+	/// <summary>
+	/// Gets the aspect ratio W.
+	/// </summary>
+	/// <returns>The aspect ratio W.</returns>
+	/// <param name="aTexture">A texture.</param>
+	private float GetAspectRatioWH (Texture2D aTexture)
+	{
 		return ((float)aTexture.width / (float)aTexture.height);
 	}
 
-
-	private void OnGUI () {
-
-
-		if(_showMenuReplay){
-
-		
-			SetGuiSkin ();
-
-			Rect menuContent = DrawBackground (0.3f);
-
-			DrawMenuButtons (menuContent,0.8f,300.0f, 20.0f);
-
-			AnimateMenuOnScreen (true);
-
-		}
-
-
-
-	}
-
-
+	
+	/// <summary>
+	/// Draws the background.
+	/// </summary>
+	/// <returns>The background.</returns>
+	/// <param name="faktWidth">Fakt width.</param>
 	private Rect DrawBackground(float faktWidth){
 
 		//Max Breite nach Prozent von dem Bilschirm
@@ -184,11 +192,8 @@ public class GuiReplay : MonoBehaviour {
 		//Oberen und Unteren Abstand berechnen
 		float backgrFreeVSpace = (Screen.height - backgrH) / 2;
 
-
-
 		GUI.DrawTexture(new Rect(0.0f - backgrW + _positionGuiX,backgrFreeVSpace, backgrW,backgrH), _texMenuBackground, ScaleMode.ScaleToFit, true, 0.0f);
-
-
+	
 		//Breite des Menus speichern
 		_menuWidth = backgrW;
 
@@ -213,22 +218,26 @@ public class GuiReplay : MonoBehaviour {
 		//Textur in Content Bereich malen in kleinen Blöcken der Textur
 		GUI.DrawTextureWithTexCoords(contentRect, _texMenuBackground2, new Rect(0, 0, contentRect.width / (_texMenuBackground2.width/2.5f), contentRect.height / (_texMenuBackground2.height/2.5f)));
 
-
 		return contentRect;
 	}
 
-
-
-	private void DrawMenuButtons (Rect content, float faktWidth, float minWidth, float minSpace) {
+	/// <summary>
+	/// Draws the menu buttons.
+	/// </summary>
+	/// <param name="content">Content.</param>
+	/// <param name="faktWidth">Fakt width.</param>
+	/// <param name="minWidth">Minimum width.</param>
+	/// <param name="minSpace">Minimum space.</param>
+	private void DrawMenuButtons (Rect content, float faktWidth, float minWidth, float minSpace) 
+	{
 	
 		//Breite nach Prozent von dem Content
 		float buttonW = content.width * faktWidth;
 
 		//Volle Breite von Content wenn kleiner als min
-		if(buttonW < minWidth){
-
+		if(buttonW < minWidth)
 			buttonW = content.width;
-		}
+		
 
 		//AspektRatio von Button
 		float buttonAspRatio = GetAspectRatioHW (_texMenuButton);
@@ -237,8 +246,8 @@ public class GuiReplay : MonoBehaviour {
 		float buttonH = buttonW * buttonAspRatio;
 
 		//Prüfen ob alle 3 Buttons mit Platz dazwischen in Content passen
-		if (((buttonH * 3) + (minSpace * 4)) > content.height) {
-
+		if (((buttonH * 3) + (minSpace * 4)) > content.height) 
+		{
 			//Höhe auf Resthöhe nach Abzug des MindestAbstandes
 			buttonH = (content.height - (4 * minSpace)) / 3;
 
@@ -253,134 +262,91 @@ public class GuiReplay : MonoBehaviour {
 		float buttonFreeVSpace = (content.height - (buttonH * 3)) / 4;
 		float buttonFreeHSpace = (content.width - buttonW) / 2;
 
-
 		GUI.skin.textField.padding.left = (int)(buttonW * 0.2f);
 		GUI.skin.textField.padding.right = (int)(buttonW * 0.2f);
 		GUI.skin.textField.padding.top = (int)(buttonH * 0.1f);
 		GUI.skin.textField.padding.bottom = (int)(buttonH * 0.1f);
 
-
 		//Stimmt die Schriftgröße
 		int fontSize = (int)( buttonH * 0.3f) ;
 
-		if(fontSize > 0){
-
+		if(fontSize > 0)
 			GUI.skin.button.fontSize = fontSize;
-
-		}
-
-
 
 		if (GUI.Button (new Rect (content.x + buttonFreeHSpace, content.y + (buttonFreeVSpace * 2) + (buttonH * 1), buttonW, buttonH), "Replay")) 
 		{
-
-
-				SaveNewHighscore();
-
-				Application.LoadLevel(_gameScene);
-
-				
-
+			SaveNewHighscore();
+			Application.LoadLevel(_gameScene);
 		}
 
 		if (GUI.Button (new Rect (content.x + buttonFreeHSpace, content.y + (buttonFreeVSpace * 3) + (buttonH * 2), buttonW, buttonH), "Menu"))
 		{
-
-
-				SaveNewHighscore();
-
-				Application.LoadLevel(_menuScene);
-
-			
-
-
+			SaveNewHighscore();
+			Application.LoadLevel(_menuScene);
 		}
 
 		GUI.skin.label.fontSize =  (int)(fontSize * 0.8f);
 		GUI.skin.textField.fontSize = (int)(fontSize * 0.8f);
 
-
-
-		if(_isNewHighscore){
+		if(_isNewHighscore)
+		{
 			GUI.Label (new Rect (content.x + buttonFreeHSpace, content.y + (buttonFreeVSpace * 1) + (buttonH * 0), buttonW, buttonH / 2), "Neuer Highscore");
 			_playerName = GUI.TextField (new Rect (content.x + buttonFreeHSpace, content.y + (buttonFreeVSpace * 1) + (buttonH * 0.5f), buttonW, buttonH/2), "" + _playerName, 8);
-			
-
 		} else {
 			GUI.Label (new Rect (content.x + buttonFreeHSpace, content.y + (buttonFreeVSpace * 1) + (buttonH * 0), buttonW, buttonH / 2), "Kein Highscore");
 			GUI.TextField (new Rect (content.x + buttonFreeHSpace, content.y + (buttonFreeVSpace * 1) + (buttonH * 0.5f), buttonW, buttonH/2), "", 8);
-			
-
-
 		}
-
-
 	}
 
-	private void SaveNewHighscore(){
-	
+	/// <summary>
+	/// Saves the new highscore.
+	/// </summary>
+	private void SaveNewHighscore()
+	{
 		if (_isNewHighscore) {
 
-			if(_playerName.Length <= 0){
+			if(_playerName.Length <= 0)
 				_playerName = "Player";
-			}
 
 			GuiHighscoreData.AddScoreItem(_playerName, GuiHighscoreData._actPoints);
 			GuiHighscoreData._actPoints = 0;
-			
-
 		} 
-
 	}
+	#endregion
 
-	public void StartMenuReplay(){
-
+	#region Public Methods
+	/// <summary>
+	/// Starts the menu replay.
+	/// </summary>
+	public void StartMenuReplay()
+	{
 		_isNewHighscore = GuiHighscoreData.IsNewHighscore (GuiHighscoreData._actPoints);
 		_showMenuReplay = true;
 	}
 
-
-
-	public void AnimateMenuOnScreen (bool onScreen){
-		
-
-		
-		if (onScreen) { //In den Screen bewegen
-			
-			if(_positionGuiX < _menuWidth) {
+	/// <summary>
+	/// Animates the menu on screen.
+	/// </summary>
+	/// <param name="onScreen">If set to <c>true</c> on screen.</param>
+	public void AnimateMenuOnScreen (bool onScreen)
+	{
+		if (onScreen) 
+		{ //In den Screen bewegen
+			if(_positionGuiX < _menuWidth) 
 				_positionGuiX += _speed * Time.deltaTime;
-			}
-			
-			if(_positionGuiX >= _menuWidth){
-				
+
+			if(_positionGuiX >= _menuWidth)
 				_positionGuiX = _menuWidth;
-				
-				
-			}
+		}else{ //Aus dem Screen raus bewegen
 			
-		} else { //Aus dem Screen raus bewegen
-			
-			if(_positionGuiX > 0.0f) {
+			if(_positionGuiX > 0.0f) 
 				_positionGuiX -= _speed * Time.deltaTime;
-			}
-			
-			if(_positionGuiX <= 0.0f){
-				
+
+			if(_positionGuiX <= 0.0f)
 				_positionGuiX = 0.0f;
-				
-				
-			}
-			
 		}
-		
 	}
-
-
-
-
-
-
-
+	#endregion
 }
 
 	

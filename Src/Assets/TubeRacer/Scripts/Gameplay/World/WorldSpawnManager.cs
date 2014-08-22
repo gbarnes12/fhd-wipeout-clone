@@ -37,11 +37,12 @@ namespace Gameplay.World
 		private List<WorldTubeChunk> _tubeChunksQueue;
 		private List<WorldObstacle> _obstaclesList;
 		private float _vehicleSpeed;
+		private VehicleController _controller;
 		#endregion
 		
 		#region Public Members
-		public bool GameRunning = true;
-		VehicleController controller;
+		public bool GameRunning = false;
+		public float FOVStrength = 100;
 		
 		#endregion
 		
@@ -60,30 +61,32 @@ namespace Gameplay.World
 		/// <summary>
 		/// Initializes the world.
 		/// </summary>
-		void Start()
+		IEnumerator Start()
 		{
+			yield return StartCoroutine(StartCameraSequence());
+
 			GameObject player = GameObject.FindGameObjectWithTag ("Player");
 			if (player == null)
 			{
 				Debug.LogError("There is no player object in the scene!");
-				return;
+				yield break;
 			}
 			
-			controller  = player.GetComponent<VehicleController> ();
-			this._vehicleSpeed = controller.Speed;
+			_controller  = player.GetComponent<VehicleController> ();
+			this._vehicleSpeed = _controller.Speed;
 			
 			GameObject levelObject = GameObject.FindGameObjectWithTag("World");
 			if (levelObject == null)
 			{
 				Debug.LogError("There is no world object in the scene please add one!");
-				return;
+				yield break;
 			}
 			
 			WorldTubeChunk[] chunks = levelObject.GetComponentsInChildren<WorldTubeChunk>();
 			if (chunks.Length == 0)
 			{
 				Debug.LogError("There are no world tube chunk elements!");
-				return;
+				yield break;
 			}
 			
 			List<WorldTubeChunk> temporaryChunkList = new List<WorldTubeChunk>();
@@ -92,6 +95,12 @@ namespace Gameplay.World
 			
 			temporaryChunkList.Sort(new WorldChunkSorter());
 			this._tubeChunksList = new LinkedList<WorldTubeChunk>(temporaryChunkList);
+
+			_controller.Speed = 400f;
+			_controller.LeftThruster.gameObject.SetActive(true);
+			_controller.RightThruster.gameObject.SetActive(true);
+
+			this.GameRunning = true;
 		}
 		
 		/// <summary>
@@ -101,15 +110,12 @@ namespace Gameplay.World
 		{
 			if(this.GameRunning)
 			{
-				this._vehicleSpeed = controller.Speed;
+				this._vehicleSpeed = _controller.Speed;
 				foreach(WorldTubeChunk tube in this._tubeChunksList)
 				{
 					tube.transform.Translate(new Vector3(0.0f, 0.0f, -1.0f * Time.deltaTime * this._vehicleSpeed));
 				}
 			}
-			
-
-			
 		}
 		#endregion
 		
@@ -212,6 +218,56 @@ namespace Gameplay.World
 			this._obstaclesList.Add (obstacle);
 		}
 		#endregion
-		
+
+		#region Private Methods
+		/// <summary>
+		/// Starts the camera sequence.
+		/// </summary>
+		/// <returns>The camera sequence.</returns>
+		private IEnumerator StartCameraSequence()
+		{
+			//Move camera to show vehicle
+			float lerpTime = 0;
+			while(Camera.main.transform.localPosition.z > -35)
+			{
+				 
+				Camera.main.transform.localPosition = new Vector3 (Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y,
+				                                                   Mathf.Lerp(0, -35, Mathf.SmoothStep(0, 1, lerpTime)));
+				lerpTime += Time.deltaTime;
+				yield return null;
+			}
+
+			StartCoroutine(GameObject.FindGameObjectWithTag("GUI").GetComponent<GuiPoints>().StartCountdown(3));
+
+			yield return new WaitForSeconds(3);
+
+			StartCoroutine(FOVAccelarionEffect());
+		}
+
+		/// <summary>
+		/// Cameras the FOV accelarion effect.
+		/// </summary>
+		/// <returns>The FOV accelarion effect.</returns>
+		private IEnumerator FOVAccelarionEffect()
+		{
+			float lerpTime = 0;
+			float startFOV = Camera.main.fieldOfView;
+			while(Camera.main.fieldOfView < FOVStrength)
+			{
+				Camera.main.fieldOfView = Mathf.Lerp(startFOV, FOVStrength, Mathf.SmoothStep(0, 1, lerpTime));
+				lerpTime += Time.deltaTime;
+				yield return null;
+			}
+
+			lerpTime = 0;
+
+			while(Camera.main.fieldOfView > startFOV + 15)
+			{
+				Camera.main.fieldOfView = Mathf.Lerp(FOVStrength, startFOV + 15, Mathf.SmoothStep(0, 1, lerpTime));
+				lerpTime += Time.deltaTime;
+				yield return null;
+			}
+		}
+		#endregion
 	}
 }
