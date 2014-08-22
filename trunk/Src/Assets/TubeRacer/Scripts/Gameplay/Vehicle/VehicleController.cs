@@ -27,7 +27,7 @@ public class VehicleController : MonoBehaviour
 	private float _dir;
 	private float _rotateVelocityMult;
 	private int _currentFrame = 0;
-	private MotionBlur _motionBlur;
+	//private MotionBlur _motionBlur;
 	#endregion
 
 	#region Public Members
@@ -45,7 +45,7 @@ public class VehicleController : MonoBehaviour
 	void Start()
 	{
 		this._cachedTransform = this.transform;
-		this._motionBlur = Camera.main.GetComponent<MotionBlur>();
+		//this._motionBlur = Camera.main.GetComponent<MotionBlur>();
 	}
 
 	/// <summary>
@@ -61,7 +61,7 @@ public class VehicleController : MonoBehaviour
 					float yDif = LeftHand.position.y - RightHand.position.y;
 					if(Mathf.Abs(yDif) > InputMargin) 
 					{
-						this._dir = ((yDif) > 0.0f) ? 1.0f : -1.0f;
+						this._dir = ((yDif) > 0.0f) ? -1.0f : 1.0f;
 						this._rotateVelocityMult = 1.0f + ((Mathf.Abs(yDif) * 0.1f)) ;
 					}else{
 						this._dir = 0.0f;
@@ -95,11 +95,10 @@ public class VehicleController : MonoBehaviour
 		{
 			if (Speed < 400) {
 				_currentFrame++;
-				if (_currentFrame % 96 == 0) {
+				if (_currentFrame % 24 == 0) {
 					Speed++;
-					if(this._motionBlur.blurAmount < 0.5f)
-						this._motionBlur.blurAmount += 0.005f;
-					Debug.Log(Speed);
+					//if(this._motionBlur.blurAmount < 0.5f)
+					//	this._motionBlur.blurAmount += 0.005f;
 				}
 			}
 		}

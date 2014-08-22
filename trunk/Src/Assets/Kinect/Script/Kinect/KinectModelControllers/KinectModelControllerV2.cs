@@ -44,7 +44,8 @@ public class KinectModelControllerV2 : MonoBehaviour {
 		Right_Leg = 0x1000000 | Hips | Knee_Right | Ankle_Right | Foot_Right,
 		R_Arm_Chest = Right_Arm | Spine,
 		No_Feet = All & ~(Foot_Left | Foot_Right),
-		Upper_Body = Head |Elbow_Left | Wrist_Left | Hand_Left | Elbow_Right | Wrist_Right | Hand_Right
+		Upper_Body = Head |Elbow_Left | Wrist_Left | Hand_Left | Elbow_Right | Wrist_Right | Hand_Right,
+		Arms = 0x1000000 | Shoulder_Left | Elbow_Left | Wrist_Left | Hand_Left | Shoulder_Right | Elbow_Right | Wrist_Right | Hand_Right
 	}
 	
 	public SkeletonWrapper sw;

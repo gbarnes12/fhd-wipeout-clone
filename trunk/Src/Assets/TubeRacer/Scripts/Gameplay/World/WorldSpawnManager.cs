@@ -53,7 +53,6 @@ namespace Gameplay.World
 		protected WorldSpawnManager()
 		{
 			this._tubeChunksQueue = new List<WorldTubeChunk>();
-			this._vehicleSpeed = 400.0f;
 		}
 		#endregion
 		
@@ -96,7 +95,7 @@ namespace Gameplay.World
 			temporaryChunkList.Sort(new WorldChunkSorter());
 			this._tubeChunksList = new LinkedList<WorldTubeChunk>(temporaryChunkList);
 
-			_controller.Speed = 400f;
+			_controller.Speed = 200f;
 			_controller.LeftThruster.gameObject.SetActive(true);
 			_controller.RightThruster.gameObject.SetActive(true);
 
