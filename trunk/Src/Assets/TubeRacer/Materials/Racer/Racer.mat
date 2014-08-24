@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Racer
-  m_Shader: {fileID: 4800000, guid: 2694d5f46dd73e944a988132e9fd64ce, type: 3}
+  m_Shader: {fileID: 4800000, guid: 4b106a347d390d74db14157cade410fe, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -79,16 +79,16 @@ Material:
     m_Floats:
       data:
         first:
-          name: _Specularity
-        second: 1
-      data:
-        first:
           name: _node_209
         second: 5
       data:
         first:
           name: _node_214
         second: 3
+      data:
+        first:
+          name: _Specularity
+        second: 1
       data:
         first:
           name: _Glossiness
@@ -100,19 +100,19 @@ Material:
       data:
         first:
           name: _DiffuseFresnel
-        second: 2.76785707
+        second: 2.41071439
       data:
         first:
           name: _AmbientVSIBL
-        second: .482142866
+        second: .517857134
       data:
         first:
           name: _IBLStrength
-        second: .571428537
+        second: .5
       data:
         first:
           name: _SpecularFresnel
-        second: 3.9913825e-10
+        second: .121428564
     m_Colors:
       data:
         first:
@@ -129,4 +129,4 @@ Material:
       data:
         first:
           name: _SpecularColorGlossA
-        second: {r: .213235319, g: .213235319, b: .213235319, a: 1}
+        second: {r: .20588237, g: .20588237, b: .20588237, a: 1}

@@ -191,21 +191,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &100022
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 400022}
-  m_Layer: 0
-  m_Name: racer_low
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &100024
 GameObject:
   m_ObjectHideFlags: 1
@@ -264,7 +249,6 @@ Transform:
   - {fileID: 400010}
   - {fileID: 400018}
   - {fileID: 400020}
-  - {fileID: 400022}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &400006
@@ -366,18 +350,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 400004}
   m_RootOrder: 7
---- !u!4 &400022
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100022}
-  m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: 4.21056484e-07, y: -25.7179298, z: -3.53207779}
-  m_LocalScale: {x: .100000001, y: .100000001, z: .100000001}
-  m_Children: []
-  m_Father: {fileID: 400004}
-  m_RootOrder: 8
 --- !u!4 &400024
 Transform:
   m_ObjectHideFlags: 1
@@ -434,7 +406,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 8dd2035ed82427943b835e5fa2e5a5ca, type: 2}
+  - {fileID: 2100000, guid: 4c4a08436ad2c7b4f80555f525eeab87, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -494,7 +466,7 @@ AudioSource:
   m_GameObject: {fileID: 100006}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: a1291249c7b9064408af198015f108ff, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 109f49f2b543afc4f9e918fdaf56a302, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -610,7 +582,7 @@ AudioSource:
   m_GameObject: {fileID: 100020}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: b57f47058ea4bda4a83ce292ed32039f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 59139e19ad33c2f43bc62eb7ab6a186a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -809,11 +781,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cf0bffb4fbb8ea4894b1683b1f5d40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateVelocity: 100
+  RotateVelocity: 75
   LeftHand: {fileID: 0}
   RightHand: {fileID: 0}
-  Speed: 400
-  InputMargin: 0
+  Speed: 200
+  InputMargin: 3
   RightInArea: 0
   LeftInArea: 0
   CarReconfigure: 0
@@ -845,7 +817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stereoMaterial: {fileID: 2100000, guid: 854bd5fa5367544278650926af9a3271, type: 2}
-  format3D: 0
+  format3D: 1
   anaglyphOptions: 1
   sideBySideOptions: 0
   interlaceRows: 1080
@@ -854,7 +826,7 @@ MonoBehaviour:
   interaxial: .25
   zeroParallax: 6
   fieldOfView: 60
-  GuiVisible: 1
+  GuiVisible: 0
   ToggleGuiKey: 9
   ToggleToeInKey: 112
   LeftRightKey: 121
