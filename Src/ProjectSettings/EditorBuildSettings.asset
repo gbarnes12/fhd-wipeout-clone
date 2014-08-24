@@ -11,5 +11,5 @@ EditorBuildSettings:
     path: Assets/TubeRacer/Scenes/Scn_MainMenu.unity
   - enabled: 1
     path: Assets/TubeRacer/Scenes/Scn_Wrld_Game.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/TubeRacer/Scenes/Development/Scn_Wrld_MinhTest.unity
