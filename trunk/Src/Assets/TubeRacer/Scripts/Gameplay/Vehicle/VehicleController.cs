@@ -27,7 +27,6 @@ public class VehicleController : MonoBehaviour
 	private float _dir;
 	private float _rotateVelocityMult;
 	private int _currentFrame = 0;
-	//private MotionBlur _motionBlur;
 	#endregion
 
 	#region Public Members
@@ -38,6 +37,16 @@ public class VehicleController : MonoBehaviour
 	#endregion
 
 	#region Unity Methods
+	/// <summary>
+	/// Awake this instance.
+	/// </summary>
+	void Awake()
+	{
+		if(UseKinect)
+			GameObject.FindGameObjectWithTag("Kinect").SetActive(true);
+		else
+			GameObject.FindGameObjectWithTag("Kinect").SetActive(false);
+	}
 
 	/// <summary>
 	/// Start this instance.
@@ -45,7 +54,6 @@ public class VehicleController : MonoBehaviour
 	void Start()
 	{
 		this._cachedTransform = this.transform;
-		//this._motionBlur = Camera.main.GetComponent<MotionBlur>();
 	}
 
 	/// <summary>
@@ -95,11 +103,8 @@ public class VehicleController : MonoBehaviour
 		{
 			if (Speed < 400) {
 				_currentFrame++;
-				if (_currentFrame % 24 == 0) {
+				if (_currentFrame % 24 == 0)
 					Speed++;
-					//if(this._motionBlur.blurAmount < 0.5f)
-					//	this._motionBlur.blurAmount += 0.005f;
-				}
 			}
 		}
 	}

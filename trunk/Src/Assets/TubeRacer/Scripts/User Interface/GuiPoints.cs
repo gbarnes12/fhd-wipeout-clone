@@ -24,6 +24,8 @@ public class GuiPoints : MonoBehaviour
 	}
 	
 	public bool Enable3D;
+	public AudioSource CountdownBeep;
+	public AudioSource StartSound;
 	#endregion
 	
 	#region Unity Methods
@@ -88,7 +90,8 @@ public class GuiPoints : MonoBehaviour
 			}else
 				GUI.Label (new Rect (Screen.width * 0.25f, Screen.height * 0.25f , Screen.width * 0.5f, Screen.height), CountdownTime.ToString ());
 		}
-		
+
+		GUI.skin.label.fontSize  = (int) (Screen.height * 0.3f);
 		if (CountdownTime == 0) 
 		{
 			if(this.Enable3D)
@@ -136,7 +139,11 @@ public class GuiPoints : MonoBehaviour
 		
 		for(int i = this.CountdownTime; i >= 0; i--)
 		{
-			this.audio.Play ();
+			if(i > 0)
+				this.CountdownBeep.Play ();
+			else
+				this.StartSound.Play ();
+
 			yield return new WaitForSeconds(1);
 			this.CountdownTime -= 1;
 		}
