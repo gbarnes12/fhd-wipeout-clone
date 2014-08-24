@@ -12,6 +12,7 @@ namespace Gameplay.Vehicle
 		//public AudioSource vehicleExplosion;
 		public GameObject Vehicle;
 		public GameObject VehicleFragments;
+		public AudioSource Music;
 		#endregion
 
 		#region Private Members
@@ -56,6 +57,8 @@ namespace Gameplay.Vehicle
 				vehicleController.LeftThruster.gameObject.SetActive(false);
 				vehicleController.RightThruster.gameObject.SetActive(false);
 				vehicleSound.PassBySound.Stop();
+				Music.Stop();
+				this.audio.Play();
 				//vehicleExplosion.Play();
 
 				Gameplay.World.WorldSpawnManager.Instance.GameRunning = false;

@@ -81,24 +81,22 @@ public class GuiPoints : MonoBehaviour
 		
 		if (CountdownTime > 0)
 		{
-			
 			if(this.Enable3D)
 			{	
 				GUI.Label (new Rect (0, Screen.height * 0.25f , Screen.width * 0.5f, Screen.height), CountdownTime.ToString ());
 				GUI.Label (new Rect (Screen.width * 0.5f, Screen.height * 0.25f, Screen.width * 0.5f, Screen.height), CountdownTime.ToString ());
 			}else
-				GUI.Label (new Rect (0, Screen.height * 0.5f , Screen.width * 0.5f, Screen.height), CountdownTime.ToString ());
+				GUI.Label (new Rect (Screen.width * 0.25f, Screen.height * 0.25f , Screen.width * 0.5f, Screen.height), CountdownTime.ToString ());
 		}
 		
 		if (CountdownTime == 0) 
 		{
-			
 			if(this.Enable3D)
 			{
 				GUI.Label (new Rect (0, Screen.height * 0.25f, Screen.width * 0.5f, Screen.height), "Start");
 				GUI.Label(new Rect(Screen.width * 0.5f, Screen.height * 0.25f, Screen.width * 0.5f, Screen.height), "Start");
 			}else
-				GUI.Label (new Rect (0, Screen.height * 0.5f, Screen.width * 0.5f, Screen.height), "Start");
+				GUI.Label (new Rect (Screen.width * 0.25f, Screen.height * 0.25f, Screen.width * 0.5f, Screen.height), "Start");
 		}
 	}
 	#endregion
@@ -138,6 +136,7 @@ public class GuiPoints : MonoBehaviour
 		
 		for(int i = this.CountdownTime; i >= 0; i--)
 		{
+			this.audio.Play ();
 			yield return new WaitForSeconds(1);
 			this.CountdownTime -= 1;
 		}

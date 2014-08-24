@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/TubeRacer/Scenes/Scn_Gui_MainMenu.unity
+    path: Assets/TubeRacer/Scenes/Scn_MainMenu.unity
   - enabled: 0
-    path: Assets/TubeRacer/Scenes/Scn_Gui_MainMenu.unity
+    path: Assets/TubeRacer/Scenes/Scn_MainMenu.unity
   - enabled: 1
     path: Assets/TubeRacer/Scenes/Scn_Wrld_Game.unity
   - enabled: 1
-    path: Assets/TubeRacer/Scenes/Scn_Wrld_MinhTest.unity
+    path: Assets/TubeRacer/Scenes/Development/Scn_Wrld_MinhTest.unity
